@@ -16,42 +16,30 @@
 </head>
 
 <body>
-    <div class="container-fluid">
-        <div class="text-center">
+    <div class="container-fluid" onload="main()">
+        <h3 style="text-align: center;">Scan to export Account</h3>
+        <h4 style="text-align: center;">You are trying to import accounts
+            from another wallet to NearFi Wallet
+        </h4>
 
-            <!-- Get a Placeholder image initially,
-       this will change according to the
-       data entered later -->
-            <img src="https://chart.googleapis.com/chart?cht=qr&chl=Hello+World&chs=160x160&chld=L|0"
+        <div class="text-center">
+            <img src=""
                 class="qr-code img-thumbnail img-responsive" />
         </div>
+        <h4 style="text-align: center;">
+            Scan this code with your phone's camera to sign.
+        </h4>
     </div>
     <script src="https://code.jquery.com/jquery-3.5.1.js">
     </script>
 
     <script>
-        // Function to HTML encode the text
-        // This creates a new hidden element,
-        // inserts the given text into it 
-        // and outputs it out as HTML
-        function htmlEncode(value) {
-            return $('<div/>').text(value)
-                .html();
-        }
-
         function main() {
-
-            // Generate the link that would be
-            // used to generate the QR Code
-            // with the given data 
-            let urlLink = window.location.href
-            urlLink = urlLink.replace("http://localhost:3000/#", "")
-            new URLSearchParams()
-            console.log('urlLink', urlLink)
+            const hash = window.location.hash.replace('#', "")
             let finalURL =
                 'https://chart.googleapis.com/chart?cht=qr&chl=' +
-                "heldsdsslo" +
-                '&chs=160x160&chld=L|0'
+                hash +
+                '&chs=300x300&chld=L|0'
 
             // Replace the src of the image with
             // the QR code image
